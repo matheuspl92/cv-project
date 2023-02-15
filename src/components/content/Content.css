@@ -1,0 +1,6 @@
+.hidden {
+    transition: all 0.25s;
+    visibility: hidden;
+    opacity: 0;
+    translate: 25px 0px;
+}

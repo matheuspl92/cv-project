@@ -29,7 +29,6 @@ export default class Form extends Component {
         }
 
         this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange(event, fieldset, prop) {
@@ -37,10 +36,6 @@ export default class Form extends Component {
             prevState[fieldset][prop] = event.target.value;
             return prevState;
         });
-    }
-
-    handleSubmit() {
-        console.log(this.state);
     }
 
     render() {
@@ -136,7 +131,7 @@ export default class Form extends Component {
                         }}/>
                     </label>
                 </fieldset>
-                <Button size="lg" onClick={this.handleSubmit}>Create CV</Button>
+                <Button size="lg" onClick={this.props.handleCreate}>Create CV</Button>
             </form>
         );
     }
