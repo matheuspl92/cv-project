@@ -43,7 +43,7 @@ export default class Form extends Component {
         const { institution, studyTitle, studyDate } = this.state.educational;
         const { company, jobTitle, startedJobDate, endedJobDate, jobDescription } = this.state.educational;
         return (
-            <form>
+            <form className={this.props.className}>
                 <fieldset>
                     <legend>Personal Info</legend>
                     <label>
