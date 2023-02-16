@@ -131,7 +131,7 @@ export default class Form extends Component {
                         }}/>
                     </label>
                 </fieldset>
-                <Button size="lg" onClick={this.props.handleCreate}>Create CV</Button>
+                <Button size="lg" onClick={() => this.props.handleCreate(this.state)}>Create CV</Button>
             </form>
         );
     }
