@@ -1,30 +1,35 @@
 import React from "react";
 import { Component } from "react";
-import { Container } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import './Content.css';
 import Form from "../form/Form";
+import Curriculum from "../curriculum/Curriculum";
 
 export default class Content extends Component {
     constructor() {
         super();
 
-        this.state = { formClass: 'visible' }
+        this.state = { formClass: 'visible', curriculumClass: 'hidden' }
 
         this.handleCreate = this.handleCreate.bind(this);
     };
 
     handleCreate() {
-        this.setState({ formClass: 'hidden' });
+        this.setState({ formClass: 'hidden', curriculumClass: 'visible' });
     };
 
     render() {
 
         return (
             <Container>
-                <div className={this.state.formClass}>
-                    <Form handleCreate={this.handleCreate} />
-                </div>
-
+                <Row className="position-relative">
+                    <Col>
+                        <Form className={this.state.formClass} handleCreate={this.handleCreate} />
+                    </Col>
+                    <Col className="position-absolute">
+                        <Curriculum className={this.state.curriculumClass} />
+                    </Col>
+                </Row>
             </Container>
         )
     }
