@@ -9,7 +9,26 @@ export default class Content extends Component {
     constructor() {
         super();
 
-        this.state = { formClass: 'visible', curriculumClass: 'hidden' }
+        this.state = { formClass: 'visible', curriculumClass: 'hidden', formData: { 
+            personal: {
+            name: '',
+            address: '',
+            birthDate: '',
+            email: '',
+            phone: '',
+        },
+        educational: {
+            institution: '',
+            studyTitle: '',
+            studyDate: '',
+        },
+        job: {
+            company: '',
+            jobTitle: '',
+            startedJobDate: '',
+            endedJobDate: '',
+            jobDescription: '',
+        }} }
 
         this.handleCreate = this.handleCreate.bind(this);
     };
@@ -26,8 +45,8 @@ export default class Content extends Component {
                     <Col>
                         <Form className={this.state.formClass} handleCreate={this.handleCreate} />
                     </Col>
-                    <Col className="position-absolute">
-                        <Curriculum className={this.state.curriculumClass} data={this.state.formData} />
+                    <Col className={"position-absolute " + this.state.curriculumClass}>
+                        <Curriculum data={this.state.formData} />
                     </Col>
                 </Row>
             </Container>

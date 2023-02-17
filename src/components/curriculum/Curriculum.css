@@ -1,2 +1,17 @@
 #curriculum {
+    display: grid;
+    grid-template-rows: 1fr 5fr;
+    grid-template-columns: 1fr 3fr;
+}
+
+#c-header {
+grid-column: 1 / 3;
+}
+
+#c-sidebar {
+
+}
+
+#c-body {
+
 }

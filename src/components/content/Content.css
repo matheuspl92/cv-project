@@ -6,6 +6,7 @@
     visibility: visible;
     opacity: 100;
     translate: 0px 0px;
+    z-index: 1;
 }
 
 .hidden {
@@ -13,4 +14,5 @@
     visibility: hidden;
     opacity: 0;
     translate: 25px 0px;
+    z-index: 0;
 }
