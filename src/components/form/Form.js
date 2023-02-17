@@ -43,36 +43,40 @@ export default class Form extends Component {
         const { institution, studyTitle, studyDate } = this.state.educational;
         const { company, jobTitle, startedJobDate, endedJobDate, jobDescription } = this.state.educational;
         return (
-            <form className={this.props.className}>
+            <form className={this.props.className} onSubmit={(event) => {
+                event.preventDefault();
+                this.props.handleCreate(this.state);
+                }}>
+                    
                 <fieldset>
                     <legend>Personal Info</legend>
                     <label>
                         Name:
-                        <input type='text' value={name} onChange={(event) => {
+                        <input type='text' required value={name} onChange={(event) => {
                             this.handleChange(event, 'personal', 'name');
                         }}/>
                     </label>
                     <label>
                         Address:
-                        <input type='text' value={address} onChange={(event) => {
+                        <input type='text' required value={address} onChange={(event) => {
                             this.handleChange(event, 'personal', 'address');
                         }}/>
                     </label>
                     <label>
                         Date of Birth:
-                        <input type='date' value={birthDate} onChange={(event) => {
+                        <input type='date' required value={birthDate} onChange={(event) => {
                             this.handleChange(event, 'personal', 'birthDate');
                         }}/>
                     </label>
                     <label>
                         Email:
-                        <input type='email' value={email} onChange={(event) => {
+                        <input type='email' required value={email} onChange={(event) => {
                             this.handleChange(event, 'personal', 'email');
                         }}/>
                     </label>
                     <label>
                         Phone Number:
-                        <input type='tel' value={phone} onChange={(event) => {
+                        <input type='tel' required value={phone} onChange={(event) => {
                             this.handleChange(event, 'personal', 'phone');
                         }}/>
                     </label>
@@ -81,19 +85,19 @@ export default class Form extends Component {
                     <legend>Educational Info</legend>
                     <label>
                         Institution Name:
-                        <input type='text' value={institution} onChange={(event) => {
+                        <input type='text' required value={institution} onChange={(event) => {
                             this.handleChange(event, 'educational', 'institution');
                         }}/>
                     </label>
                     <label>
                         Title of Study:
-                        <input type='text' value={studyTitle} onChange={(event) => {
+                        <input type='text' required value={studyTitle} onChange={(event) => {
                             this.handleChange(event, 'educational', 'studyTitle');
                         }}/>
                     </label>
                     <label>
                         Date of Study:
-                        <input type='date' value={studyDate} onChange={(event) => {
+                        <input type='date' required value={studyDate} onChange={(event) => {
                             this.handleChange(event, 'educational', 'studyDate');
                         }}/>
                     </label>
@@ -102,36 +106,36 @@ export default class Form extends Component {
                     <legend>Professional Info</legend>
                     <label>
                         Company Name:
-                        <input type='text' value={company} onChange={(event) => {
+                        <input type='text' required value={company} onChange={(event) => {
                             this.handleChange(event, 'job', 'company');
                         }}/>
                     </label>
                     <label>
                         Job Title:
-                        <input type='text' value={jobTitle} onChange={(event) => {
+                        <input type='text' required value={jobTitle} onChange={(event) => {
                             this.handleChange(event, 'job', 'jobTitle');
                         }}/>
                     </label>
                     <label>
                         Started Job:
-                        <input type='date' value={startedJobDate} onChange={(event) => {
+                        <input type='date' required value={startedJobDate} onChange={(event) => {
                             this.handleChange(event, 'job', 'startedJobDate');
                         }}/>
                     </label>
                     <label>
                         Ended Job:
-                        <input type='date' value={endedJobDate} onChange={(event) => {
+                        <input type='date' required value={endedJobDate} onChange={(event) => {
                             this.handleChange(event, 'job', 'endedJobDate');
                         }}/>
                     </label>
                     <label>
                         Job Description:
-                        <textarea value={jobDescription} onChange={(event) => {
+                        <textarea required value={jobDescription} onChange={(event) => {
                             this.handleChange(event, 'job', 'jobDescription');
                         }}/>
                     </label>
                 </fieldset>
-                <Button size="lg" onClick={() => this.props.handleCreate(this.state)}>Create CV</Button>
+                <Button size="lg" type="submit">Create CV</Button>
             </form>
         );
     }
