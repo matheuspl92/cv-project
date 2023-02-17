@@ -1,0 +1,25 @@
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    gap: 32px;
+    box-shadow: 0px 0px 5px gray;
+    border-radius: 8px;
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.label-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+}

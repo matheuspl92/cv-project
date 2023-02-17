@@ -1,5 +1,6 @@
 import React from "react";
 import { Component } from "react";
+import { Button } from "react-bootstrap";
 import './Curriculum.css';
 
 export default class Curriculum extends Component {
@@ -35,6 +36,9 @@ export default class Curriculum extends Component {
                         <p className="job-text">Ended Job: {data.job.endedJobDate}</p>
                         <p className="job-text">Job Description: {data.job.jobDescription}</p>
                     </div>
+                </div>
+                <div id="button-panel">
+                    <Button size='lg' onClick={this.props.handleEdit}>Edit Curriculum</Button>
                 </div>
             </div>
         );

@@ -31,10 +31,15 @@ export default class Content extends Component {
         }} }
 
         this.handleCreate = this.handleCreate.bind(this);
+        this.handleEdit = this.handleEdit.bind(this);
     };
 
     handleCreate(formData) {
         this.setState({ formClass: 'hidden', curriculumClass: 'visible', formData: formData});
+    };
+
+    handleEdit() {
+        this.setState({ formClass: 'visible', curriculumClass: 'hidden' });
     };
 
     render() {
@@ -46,7 +51,7 @@ export default class Content extends Component {
                         <Form className={this.state.formClass} handleCreate={this.handleCreate} />
                     </Col>
                     <Col className={"position-absolute " + this.state.curriculumClass}>
-                        <Curriculum data={this.state.formData} />
+                        <Curriculum data={this.state.formData} handleEdit={this.handleEdit} />
                     </Col>
                 </Row>
             </Container>
