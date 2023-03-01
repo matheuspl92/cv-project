@@ -12,13 +12,3 @@ const Header = () => {
 };
 
 export default Header;
-
-/* export default class Header extends Component {
-    render() {
-        return (
-            <Container id="header">
-                <h1 id="header-title">CV Maker App</h1>
-            </Container>
-        )
-    }
-} */
