@@ -1,60 +1,59 @@
-import React from "react";
-import { Component } from "react";
+import React, { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import './Content.css';
 import Form from "../form/Form";
 import Curriculum from "../curriculum/Curriculum";
 
-export default class Content extends Component {
-    constructor() {
-        super();
+const Content = () => {
 
-        this.state = { formClass: 'visible', curriculumClass: 'hidden', formData: { 
+    const [data, setData] = useState({
+        formClass: 'visible',
+        curriculumClass: 'hidden',
+        formData: {
             personal: {
-            name: '',
-            address: '',
-            birthDate: '',
-            email: '',
-            phone: '',
-        },
-        educational: {
-            institution: '',
-            studyTitle: '',
-            studyDate: '',
-        },
-        job: {
-            company: '',
-            jobTitle: '',
-            startedJobDate: '',
-            endedJobDate: '',
-            jobDescription: '',
-        }} }
+                name: '',
+                address: '',
+                birthDate: '',
+                email: '',
+                phone: '',
+            },
+            educational: {
+                institution: '',
+                studyTitle: '',
+                studyDate: '',
+            },
+            job: {
+                company: '',
+                jobTitle: '',
+                startedJobDate: '',
+                endedJobDate: '',
+                jobDescription: '',
+            }
+        }
+    });
 
-        this.handleCreate = this.handleCreate.bind(this);
-        this.handleEdit = this.handleEdit.bind(this);
+    const handleCreate = (formData) => {
+        setData({ formClass: 'hidden', curriculumClass: 'visible', formData: formData });
     };
 
-    handleCreate(formData) {
-        this.setState({ formClass: 'hidden', curriculumClass: 'visible', formData: formData});
+    const handleEdit = () => {
+        setData({ formClass: 'visible', curriculumClass: 'hidden', formData: data.formData});
     };
 
-    handleEdit() {
-        this.setState({ formClass: 'visible', curriculumClass: 'hidden' });
-    };
+    return (
 
-    render() {
+        <Container>
+            <Row className="position-relative">
+                <Col>
+                    <Form className={data.formClass} handleCreate={handleCreate} />
+                </Col>
+                <Col className={"position-absolute " + data.curriculumClass}>
+                    <Curriculum data={data.formData} handleEdit={handleEdit} />
+                </Col>
+            </Row>
+        </Container>
 
-        return (
-            <Container>
-                <Row className="position-relative">
-                    <Col>
-                        <Form className={this.state.formClass} handleCreate={this.handleCreate} />
-                    </Col>
-                    <Col className={"position-absolute " + this.state.curriculumClass}>
-                        <Curriculum data={this.state.formData} handleEdit={this.handleEdit} />
-                    </Col>
-                </Row>
-            </Container>
-        )
-    }
-}
+    );
+};
+
+export default Content;
